@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+        <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+        <title>Andrew's Calculator</title>
+    </head>
+    <link rel="icon" href="images/FaceImage.jpg" type="image/jpg">
+    <link rel="stylesheet" href="Calculator.css">
+    <body>
+        <div id="header">
+             <h1> Welcome to Andrew's Calculator</h1>
+             <p> I'm Andrew, a current freshman at UCLA. Learn more about me below!</p>
+             <button>
+                 <a target ="_blank" href="https://github.com/Andrewwang1003">
+                    My Github
+                </a>
+            </button>
+             <button >
+                <a target ="_blank" href="//www.linkedin.com/in/andrew-wang-4637382a9/">
+                    My LinkedIn
+                </a>
+            </button>
+            <button id="emailbutton">
+                    Email:
+                <a target ="_blank" href="mailto:andrewwang1003@g.ucla.edu">
+                    andrewwang1003@g.ucla.edu
+                    </a>                </button>
+            <br>
+            <br>
+        </div>
+        <main>
+            <script src="script.js"></script>
+            <div class="empty_box">
+                <table id="calc">
+                    <tr class="row">
+                        <th><button style="background-color: darkgray; font-size: 30px;">Del</button></th>
+                        <script type="py" config="./conf.json" src="./calculator.py"></script>
+                        <th><button style="background-color: darkgray; font-size: 30px">C</button></th>
+                        <th><button style="background-color: darkgray; font-size: 30px" >%</button></th>
+                        <th><button style="background-color: orange; font-size: 30px">/</button></th>
+                    </tr>
+                    <tr class="row">
+                        <th><button style="font-size: 30px">7</button> </th>
+                        <th><button style="font-size: 30px">8</button> </th>
+                        <th><button style="font-size: 30px">9</button> </th>
+                        <th><button style="background-color: orange; font-size: 30px">x</button> </th>
+                    </tr>
+                    <tr class="row">
+                        <th><button style="font-size: 30px">4</button> </th>
+                        <th><button style="font-size: 30px">5</button> </th>
+                        <th><button style="font-size: 30px">6</button> </th>
+                        <th><button style="background-color: orange; font-size: 30px">-</button> </th>
+                    </tr>
+                    <tr class="row">
+                        <th><button style="font-size: 30px">1</button> </th>
+                        <th><button style="font-size: 30px">2</button> </th>
+                        <th><button style="font-size: 30px">3</button> </th>
+                        <th><button style="background-color: orange; font-size: 30px">+</button> </th>
+                    </tr>
+                    <tr class="row">
+                        <th><button style="font-size: 30px">+/-</button> </th>
+                        <th><button style="font-size: 30px">0</button> </th>
+                        <th><button style="font-size: 30px">.</button> </th>
+                        <th><button style="background-color: orange; font-size: 30px">=</button> </th>
+                    </tr>
+                </table>
+            </div>
+        </main>
+    </body>
+</html>

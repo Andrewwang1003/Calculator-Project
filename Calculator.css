@@ -1,0 +1,66 @@
+
+html{
+    background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Quicksand Light'
+}
+#header{
+    margin-top: auto;
+    text-align: center; 
+    background-color: rgb(62, 62, 62); 
+    border-radius: 5px; 
+    height: 120px;
+    width: 700px;
+    margin:auto;
+}
+#header button{
+    border-radius: 5px; 
+    border: 5px; 
+    height: 25px;
+}
+
+.container1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    color: orange;
+    line-height: 20px; 
+    padding-top: 10px; 
+    padding-bottom: 0px;
+}
+p{
+    color: rgb(188, 187, 187);
+    line-height: 10px; 
+    padding-top: 3px; 
+    padding-bottom: 3px;
+}
+#emailbutton{
+    color: darkslategray;
+}
+a{
+    color: darkslategray
+}
+.empty_box{
+    height: 800px;
+    width: 500px;
+    background-color: rgb(62, 62, 62);
+    border-radius: 20px;
+    margin:auto;
+    margin-top: 20px;
+}
+#calc tr th button{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 0;
+    border-radius: 30px;
+
+}
+#calc{
+    padding-top: 170px;
+}
