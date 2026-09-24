@@ -52,6 +52,15 @@ a{
     border-radius: 20px;
     margin:auto;
     margin-top: 20px;
+    display: flow-root;
+}
+.results{
+    margin: 30px auto 0 auto;
+    height: 80px;
+    width: 450px;
+    background-color: rgb(0, 0, 0);
+    padding-top: 25px;
+    border-radius: 20px;
 }
 #calc tr th button{
     width: 100px;
@@ -59,8 +68,15 @@ a{
     margin: 10px;
     border: 0;
     border-radius: 30px;
-
 }
 #calc{
-    padding-top: 170px;
+    padding-top: 20px;
+}
+#display{
+    color: rgb(240, 248, 255);
+    font-size: 50px;
+    text-align: right;       
+    padding-right: 20px;     
+    white-space: nowrap;     
+    overflow: hidden;      
 }

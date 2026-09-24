@@ -2,11 +2,11 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
-        <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
         <title>Andrew's Calculator</title>
     </head>
     <link rel="icon" href="images/FaceImage.jpg" type="image/jpg">
     <link rel="stylesheet" href="Calculator.css">
+    <script src="calculator.js"></script>
     <body>
         <div id="header">
              <h1> Welcome to Andrew's Calculator</h1>
@@ -32,36 +32,36 @@
         <main>
             <script src="script.js"></script>
             <div class="empty_box">
+                <div class="results"> <div id="display"></div></div>
                 <table id="calc">
                     <tr class="row">
-                        <th><button onclick="deleteChar(-1)" style="background-color: darkgray; font-size: 30px;">Del</button></th>
-                        <th><button onclick="clear()" style="background-color: darkgray; font-size: 30px">C</button></th>
-                        <th><button onclick="appendChar('%')" style="background-color: darkgray; font-size: 30px" >%</button></th>
-                        <th><button onclick="appendChar('/')" style="background-color: orange; font-size: 30px">/</button></th>
+                        <th><button onclick="deleteChar(); updateDisplay()" style="background-color: darkgray; font-size: 30px;">Del</button></th>
+                        <th><button onclick="clearAll(); updateDisplay()" style="background-color: darkgray; font-size: 30px">C</button></th>
+                        <th><button onclick="appendChar('%'); updateDisplay()" style="background-color: darkgray; font-size: 30px" >%</button></th>
+                        <th><button onclick="appendChar('/'); updateDisplay()" style="background-color: orange; font-size: 30px">/</button></th>
                     </tr>
                     <tr class="row">
-                        <th><button onclick="appendChar('7')" style="font-size: 30px">7</button> </th>
-                        <th><button onclick="appendChar('8')" style="font-size: 30px">8</button> </th>
-                        <th><button onclick="appendChar('9')" style="font-size: 30px">9</button> </th>
-                        <th><button onclick="appendChar('*')" style="background-color: orange; font-size: 30px">x</button> </th>
+                        <th><button onclick="appendChar('7'); updateDisplay()" style="font-size: 30px">7</button> </th>
+                        <th><button onclick="appendChar('8'); updateDisplay()" style="font-size: 30px">8</button> </th>
+                        <th><button onclick="appendChar('9'); updateDisplay()" style="font-size: 30px">9</button> </th>
+                        <th><button onclick="appendChar('*'); updateDisplay()" style="background-color: orange; font-size: 30px">x</button> </th>
+                    </tr>  
+                    <tr class="row">
+                        <th><button onclick="appendChar('4'); updateDisplay()" style="font-size: 30px">4</button> </th>
+                        <th><button onclick="appendChar('5'); updateDisplay()" style="font-size: 30px">5</button> </th>
+                        <th><button onclick="appendChar('6'); updateDisplay()" style="font-size: 30px">6</button> </th>                                <th><button onclick="appendChar('-'); updateDisplay()" style="background-color: orange; font-size: 30px">-</button> </th>
                     </tr>
                     <tr class="row">
-                        <th><button onclick="appendChar('4')" style="font-size: 30px">4</button> </th>
-                        <th><button onclick="appendChar('5')" style="font-size: 30px">5</button> </th>
-                        <th><button onclick="appendChar('6')" style="font-size: 30px">6</button> </th>
-                        <th><button onclick="appendChar('-')" style="background-color: orange; font-size: 30px">-</button> </th>
+                        <th><button onclick="appendChar('1'); updateDisplay()" style="font-size: 30px">1</button> </th>
+                        <th><button onclick="appendChar('2'); updateDisplay()" style="font-size: 30px">2</button> </th>
+                        <th><button onclick="appendChar('3'); updateDisplay()" style="font-size: 30px">3</button> </th>
+                        <th><button onclick="appendChar('+'); updateDisplay()" style="background-color: orange; font-size: 30px">+</button> </th>
                     </tr>
                     <tr class="row">
-                        <th><button onclick="appendChar('1')" style="font-size: 30px">1</button> </th>
-                        <th><button onclick="appendChar('2')" style="font-size: 30px">2</button> </th>
-                        <th><button onclick="appendChar('3')" style="font-size: 30px">3</button> </th>
-                        <th><button onclick="appendChar('+')" style="background-color: orange; font-size: 30px">+</button> </th>
-                    </tr>
-                    <tr class="row">
-                        <th><button onclick="reverse(equation)" style="font-size: 30px">+/-</button> </th>
-                        <th><button onclick="appendChar('%')" style="font-size: 30px">0</button> </th>
-                        <th><button onclick="appendChar('.')" style="font-size: 30px">.</button> </th>
-                        <th><button onclick="result()" style="background-color: orange; font-size: 30px">=</button> </th>
+                        <th><button onclick="reverse(); updateDisplay()" style="font-size: 30px">+/-</button> </th>
+                        <th><button onclick="appendChar('0'); updateDisplay()" style="font-size: 30px">0</button> </th>
+                        <th><button onclick="appendChar('.'); updateDisplay()" style="font-size: 30px">.</button> </th>
+                        <th><button onclick="showResult(); updateDisplay()" style="background-color: orange; font-size: 30px">=</button> </th>
                     </tr>
                 </table>
             </div>

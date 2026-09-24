@@ -1,50 +1,75 @@
 tokens = []
-
+just_calculated = False
 def appendChar(value):
-    last_is_int = tokens and isinstance(tokens[-1],int)
-    if isinstance(value, int) and last_is_int:
-        tokens[-1] = tokens[-1]*10+value
-    elif isinstance(value, int) or last_is_int:
+    global just_calculated
+    if just_calculated and (value.isdigit() or value == "."):
+        tokens.clear()
+    just_calculated = False
+    last_is_num = tokens and is_number(tokens[-1])
+    add_decimal = tokens and is_int(tokens[-1]) and value == "."
+    if (last_is_num and value.isdigit()) or add_decimal :
+        tokens[-1]+=value
+    elif (last_is_num or value.isdigit()) and value != '.':
         tokens.append(value)
+    
+    
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
+def is_int(s):
+    try:
+        int(s)
+        return True
+    except ValueError:
+        return False
 
 def deleteChar():
-    tokens.pop() 
+    if tokens:
+        tokens.pop()
 
 def clear():
-    tokens.clear()
+    if tokens: 
+        tokens.clear()
 
 def reverse():
-    if isinstance(tokens[-1], int):
-        tokens[-1] = tokens[-1]*-1
+    if tokens and is_number(tokens[-1]):
+        if tokens[-1][0] == "-":
+            tokens[-1] = tokens[-1][1:]
+        else:
+            tokens[-1] = "-" + tokens[-1]
 
 def result():
-    stack = [float(tokens[0])]
-    for i in range(1, len(tokens), 2):
-        op = tokens[i]
-        digit = float(tokens[i+1])
-        if op =="*":
-            stack.append(stack.pop() * digit)
-        if op =="/":
-            stack.append(stack.pop() / digit)
-        if op =="+":
-            stack.append(digit)
-        else:
-            stack.append(-1*digit)
-    return sum(stack)
+    if tokens: 
+        stack = [tokens[0]]
+        for i in range(1, len(tokens)-1, 2):
+            op = tokens[i]
+            digit = float(tokens[i+1])
+            if op =="*":
+                stack.append(float(stack.pop()) * digit)
+            if op =="/":
+                try:
+                    stack.append(float(stack.pop()) / digit)
+                except ZeroDivisionError:
+                    return "Can't divide by Zero"
+            if op =="+":
+                stack.append(digit)
+            elif op =="-":
+                stack.append(-1*digit)
+        total = round(sum([float(value) for value in stack]), 3)
+        if total.is_integer():
+            return int(total)
+        return total
+    return 0 
 
-appendChar(3)
-appendChar(3)
-appendChar("*")
-appendChar(3)
-reverse()
-appendChar(4)
-appendChar("+")
-appendChar("-")
-appendChar(3)
-print(tokens)
-"""
-need to fix the reverse function/append funciton with negative numbers
-currently when we reverse the a digit and then append another digit it gives a incorrect result as the appended number is not negative
-i think if the tokens[-1] is negative we should add the negative version of the appended number, so we get the correct result.
-"""
-
+def equals():
+    global just_calculated
+    answer = result()
+    tokens.clear()
+    if not isinstance(answer, str):
+        tokens.append(str(answer))
+        just_calculated = True
+    return answer
