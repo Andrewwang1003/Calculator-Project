@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap');
 
 html {
-    background-image: url("images/background.jpg");
+    background-image: url("background.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
