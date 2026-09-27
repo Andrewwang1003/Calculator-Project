@@ -144,3 +144,17 @@ main {
 #history tr:hover td {
     background-color: #e8f0fe;
 }
+
+@media (max-width: 540px) {
+    .empty_box { width: 360px; }
+    .results   { width: 320px; height: 60px; padding-top: 15px; }
+    #display   { font-size: 36px; }
+    #calc td button {
+        width: 70px;
+        height: 70px;
+        margin: 6px;
+        font-size: 24px;
+        border-radius: 22px;
+    }
+}
+
