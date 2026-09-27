@@ -145,16 +145,71 @@ main {
     background-color: #e8f0fe;
 }
 
-@media (max-width: 540px) {
-    .empty_box { width: 100px; }
-    .results   { width: 100px; height: 20px; padding-top: 5px; }
-    #display   { font-size: 18px; }
-    #calc td button {
-        width: 30px;
-        height: 30px;
-        margin: 2px;
-        font-size: 6px;
-        border-radius: 5xp;
+@media (max-width: 700px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 0 12px;
+    }
+
+    #header {
+        width: auto;
+        height: auto;
+        margin: 0 12px;
+        padding: 10px 10px 16px;
+    }
+    h1 {
+        font-size: 22px;
+        line-height: normal;
+    }
+    p {
+        line-height: normal;
+    }
+    #header button {
+        height: auto;
+        margin: 4px;
+        padding: 4px 8px;
+    }
+
+    .empty_box {
+        width: 100%;
+        max-width: 360px;
+        height: auto;
+        padding-bottom: 16px;
+    }
+    .results {
+        width: auto;
+        height: 60px;
+        margin: 16px 12px 0;
+        padding-top: 15px;
+    }
+    #display {
+        font-size: 36px;
+    }
+    #calc {
+        margin: 0 auto;
+        padding-top: 10px;
+    }
+    #calc tr th button {
+        width: 70px;
+        height: 70px;
+        margin: 4px;
+        font-size: 24px;
+        border-radius: 22px;
+    }
+
+    #history {
+        width: 100%;
+        max-width: 360px;
+        max-height: 400px;
+    }
+    #history table {
+        font-size: 12px;
+    }
+    #history th,
+    #history td {
+        padding: 6px 8px;
+        word-break: break-all;
     }
 }
-
