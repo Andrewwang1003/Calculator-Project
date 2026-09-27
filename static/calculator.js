@@ -21,6 +21,8 @@ function appendChar(value) {
     else if (!isOperand(last)) tokens.push(value);
   } else if (isOperand(last)) {
     tokens.push(value);
+  } else if (last !== undefined) {
+    tokens[i] = value;
   }
   updateDisplay();
 }
@@ -58,7 +60,7 @@ function result() {
     if (op === "x" || op === "*") {
       stack.push(stack.pop() * num);
     } else if (op === "/") {
-      if (num === 0) return "ZeroDivisonError";
+      if (num === 0) return "Cannot divide by 0";
       stack.push(stack.pop() / num);
     } else if (op === "+") {
       stack.push(num);
@@ -73,16 +75,23 @@ function result() {
 }
 
 function equals() {
-  const equation = tokens.join(" ")
+  if (tokens.length && !isOperand(tokens[tokens.length - 1])) tokens.pop();
+  if (tokens.length < 3) return tokens.join(" ");
+
+  const equation = tokens.join(" ");
   const answer = result();
   justCalculated = true;
-  sendCalc(equation, answer)
+  sendCalc(equation, answer);
+
+  if (typeof answer === "string") {
+    tokens = [];
+    return answer;
+  }
   tokens = [String(answer)];
   return tokens[0];
 }
 
 function updateDisplay() {
-  
   document.getElementById("display").textContent = tokens.join(" ");
 }
 
@@ -90,15 +99,18 @@ function showResult() {
   document.getElementById("display").textContent = equals();
 }
 
-async function sendCalc(equation, result) {
-  const response = await fetch("/api/calculations", {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({"equation": equation, "result": result })
-  });
-  const data = await response.json();
-  console.log(response.status, data);
-  returnCalc()
+async function sendCalc(equation, answer) {
+  try {
+    const response = await fetch("/api/calculations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ equation, result: answer })
+    });
+    if (!response.ok) console.error("Save failed:", response.status, await response.json());
+  } catch (err) {
+    console.error("Network error:", err);
+  }
+  returnCalc();
 }
 
 async function returnCalc() {
@@ -116,9 +128,10 @@ async function returnCalc() {
   });
   table.appendChild(headerRow);
 
-  data.forEach(row => {
+  data.forEach((row, index) => {
     const tr = document.createElement("tr");
-    [row.number, row.equation, row.result, row.time].forEach(value => {
+    const localTime = new Date(row.time.replace(" ", "T") + "Z").toLocaleTimeString();
+    [index + 1, row.equation, row.result, localTime].forEach(value => {
       const td = document.createElement("td");
       td.textContent = value;
       tr.appendChild(td);
@@ -128,4 +141,5 @@ async function returnCalc() {
 
   container.appendChild(table);
 }
-returnCalc()
+
+returnCalc();

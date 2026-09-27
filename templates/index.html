@@ -1,71 +1,58 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Andrew's Calculator</title>
-        <link rel="icon" href="../images/FaceImage.jpg" type="image/jpg">
-        <link rel="stylesheet" href="../static/Calculator.css">
+        <link rel="icon" href="{{ url_for('static', filename='images/FaceImage.jpg') }}" type="image/jpeg">
+        <link rel="stylesheet" href="{{ url_for('static', filename='Calculator.css') }}">
     </head>
     <body>
         <div id="header">
-             <h1> Welcome to Andrew's Calculator</h1>
-             <p> I'm Andrew, a current freshman at UCLA. Learn more about me below!</p>
-             <button>
-                 <a target ="_blank" href="https://github.com/Andrewwang1003">
-                    My Github
-                </a>
-            </button>
-             <button >
-                <a target ="_blank" href="//www.linkedin.com/in/andrew-wang-4637382a9/">
-                    My LinkedIn
-                </a>
-            </button>
-            <button id="emailbutton">
-                    Email:
-                <a target ="_blank" href="mailto:andrewwang1003@g.ucla.edu">
-                    andrewwang1003@g.ucla.edu
-                </a>                
-            </button>
-            <br>
-            <br>
+            <h1>Welcome to Andrew's Calculator</h1>
+            <p>I'm Andrew, a current freshman at UCLA. Learn more about me below!</p>
+            <a class="link-button" target="_blank" href="https://github.com/Andrewwang1003">My GitHub</a>
+            <a class="link-button" target="_blank" href="https://www.linkedin.com/in/andrew-wang-4637382a9/">My LinkedIn</a>
+            <a class="link-button" href="mailto:andrewwang1003@g.ucla.edu">Email: andrewwang1003@g.ucla.edu</a>
         </div>
         <main>
             <div class="empty_box">
-                <div class="results"> <div id="display"></div></div>
+                <div class="results"><div id="display"></div></div>
                 <table id="calc">
                     <tr class="row">
-                        <th><button class="gray" onclick="deleteChar(); updateDisplay()"> Del</button></th>
-                        <th><button class="gray" onclick="clearAll(); updateDisplay()">C</button></th>
-                        <th><button class="gray" onclick="appendChar('%'); updateDisplay()">%</button></th>
-                        <th><button class="orange" onclick="appendChar('/'); updateDisplay()">/</button></th>
+                        <td><button class="gray" onclick="deleteChar()">Del</button></td>
+                        <td><button class="gray" onclick="clearAll()">C</button></td>
+                        <td><button class="gray" onclick="appendChar('%')">%</button></td>
+                        <td><button class="orange" onclick="appendChar('/')">/</button></td>
                     </tr>
                     <tr class="row">
-                        <th><button class="white" onclick="appendChar('7'); updateDisplay()">7</button> </th>
-                        <th><button class="white" onclick="appendChar('8'); updateDisplay()">8</button> </th>
-                        <th><button class="white" onclick="appendChar('9'); updateDisplay()">9</button> </th>
-                        <th><button class="orange" onclick="appendChar('x'); updateDisplay()">x</button> </th>
-                    </tr>  
-                    <tr class="row">
-                        <th><button class="white" onclick="appendChar('4'); updateDisplay()">4</button> </th>
-                        <th><button class="white" onclick="appendChar('5'); updateDisplay()">5</button> </th>
-                        <th><button class="white" onclick="appendChar('6'); updateDisplay()">6</button> </th>                                
-                        <th><button class="orange" onclick="appendChar('-'); updateDisplay()">-</button> </th>
+                        <td><button class="white" onclick="appendChar('7')">7</button></td>
+                        <td><button class="white" onclick="appendChar('8')">8</button></td>
+                        <td><button class="white" onclick="appendChar('9')">9</button></td>
+                        <td><button class="orange" onclick="appendChar('x')">x</button></td>
                     </tr>
                     <tr class="row">
-                        <th><button class="white" onclick="appendChar('1'); updateDisplay()">1</button> </th>
-                        <th><button class="white" onclick="appendChar('2'); updateDisplay()">2</button> </th>
-                        <th><button class="white" onclick="appendChar('3'); updateDisplay()">3</button> </th>
-                        <th><button class="orange" onclick="appendChar('+'); updateDisplay()">+</button> </th>
+                        <td><button class="white" onclick="appendChar('4')">4</button></td>
+                        <td><button class="white" onclick="appendChar('5')">5</button></td>
+                        <td><button class="white" onclick="appendChar('6')">6</button></td>
+                        <td><button class="orange" onclick="appendChar('-')">-</button></td>
                     </tr>
                     <tr class="row">
-                        <th><button class="white" onclick="reverse(); updateDisplay()">+/-</button> </th>
-                        <th><button class="white" onclick="appendChar('0'); updateDisplay()">0</button> </th>
-                        <th><button class="white" onclick="appendChar('.'); updateDisplay()">.</button> </th>
-                        <th><button class="orange" onclick="showResult()">=</button> </th>
+                        <td><button class="white" onclick="appendChar('1')">1</button></td>
+                        <td><button class="white" onclick="appendChar('2')">2</button></td>
+                        <td><button class="white" onclick="appendChar('3')">3</button></td>
+                        <td><button class="orange" onclick="appendChar('+')">+</button></td>
+                    </tr>
+                    <tr class="row">
+                        <td><button class="white" onclick="reverse()">+/-</button></td>
+                        <td><button class="white" onclick="appendChar('0')">0</button></td>
+                        <td><button class="white" onclick="appendChar('.')">.</button></td>
+                        <td><button class="orange" onclick="showResult()">=</button></td>
                     </tr>
                 </table>
             </div>
             <div id="history"></div>
         </main>
-        <script src="../static/calculator.js"></script>
+        <script src="{{ url_for('static', filename='calculator.js') }}"></script>
     </body>
 </html>
