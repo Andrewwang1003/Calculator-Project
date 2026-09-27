@@ -146,15 +146,15 @@ main {
 }
 
 @media (max-width: 540px) {
-    .empty_box { width: 360px; }
-    .results   { width: 320px; height: 60px; padding-top: 15px; }
-    #display   { font-size: 36px; }
+    .empty_box { width: 100px; }
+    .results   { width: 100px; height: 20px; padding-top: 5px; }
+    #display   { font-size: 18px; }
     #calc td button {
-        width: 70px;
-        height: 70px;
-        margin: 6px;
-        font-size: 24px;
-        border-radius: 22px;
+        width: 30px;
+        height: 30px;
+        margin: 2px;
+        font-size: 6px;
+        border-radius: 5xp;
     }
 }
 
