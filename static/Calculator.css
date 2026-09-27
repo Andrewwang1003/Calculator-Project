@@ -192,11 +192,11 @@ main {
         padding-top: 10px;
     }
     #calc tr th button {
-        width: 70px;
-        height: 70px;
-        margin: 4px;
-        font-size: 24px;
-        border-radius: 22px;
+        width: 30px;
+        height: 30px;
+        margin: 2px;
+        font-size: 16px;
+        border-radius: 11px;
     }
 
     #history {
