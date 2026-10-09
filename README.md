@@ -1,7 +1,5 @@
 # Calculator-Project
 
-creating a easy calculator project. This is the 1st of my many projects and at the end of the year I hope to be widely proficent at coding and be able to apply myself to job interviews and more. This is where I will start. 
+This Calculator is an mostly handwritten calculator with my own designed UI and frontend, with majority but some help from AI to generate and connect my backend using SQLite to save past calculations and generate it into the screen. I utilized HTML to create the front end, and Javascript to do the calculations and bring the calculations to the screen. I wrote the logic first using Python, but used an AI to translate that python into Javascript to successfully connect it to my HTML. I then started the app.py section of the application using Python and when the SQlite got too confusing I would rely on AI to help me debug and successful write my logic and thought process. I then used PythonAnywhere.com to bring my front and backend to life, where the application is now here: https://andrewwang1003.pythonanywhere.com/. 
 
-Due to my lack of knowledge of Javascript I have written my code in calculator.py, however I will utilize AI, Claude most likely, to convert the code into JS
-
-When adding a database for past history questions the usage of frontend and backend jargon was too heavy, so I used a lot of AI to help me break down the steps. For my next projects I plan to focus more on these concepts so I can get them engrained. 
+For my first project I would say it successful, but in the future I want to improve on the system design and try to design the front and backend without relying on as much AI. 
